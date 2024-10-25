@@ -4,9 +4,9 @@ import Link from "next/link";
 export default function Layout({ children }) {
   return (
     <div>
-      <Tabs defaultValue="account" className="w-full">
+      <Tabs defaultValue="Dashboard" className="w-full">
         <TabsList className="w-full">
-        {/* <Link href={"/admin"}>
+          {/* <Link href={"/admin"}>
             <TabsTrigger value="Admin">Admin</TabsTrigger>
           </Link> */}
           <Link href={"/admin/dashboard"}>
