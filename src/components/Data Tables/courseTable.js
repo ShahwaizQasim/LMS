@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import { useState } from "react";
 import {
   flexRender,
   getCoreRowModel,
@@ -35,33 +35,38 @@ import {
 const data = [
   {
     id: "m5gr84i9",
-    amount: 316,
-    status: "success",
-    email: "ken99@yahoo.com",
+    course: "Web Development",
+    status: "active",
+    duration: "1 year",
+    description: "Make student complete Web Developer from scratch",
   },
   {
     id: "3u1reuv4",
-    amount: 242,
-    status: "success",
-    email: "Abe45@gmail.com",
+    course: "App Development",
+    status: "active",
+    duration: "4 months",
+    description: "Make Web Developer also App Developer",
   },
   {
     id: "derv1ws0",
-    amount: 837,
-    status: "processing",
-    email: "Monserrat44@gmail.com",
+    course: "Graphic Designing",
+    status: "active",
+    duration: "2 months",
+    description: "Make complete Graphic Designer",
   },
   {
     id: "5kma53ae",
-    amount: 874,
-    status: "success",
-    email: "Silas22@gmail.com",
+    course: "Python Programming",
+    status: "active",
+    duration: "4 months",
+    description: "Make Complete Python Programmer",
   },
   {
     id: "bhqecj4p",
-    amount: 721,
-    status: "failed",
-    email: "carmella@hotmail.com",
+    course: "Flutter Development",
+    status: "active",
+    duration: "6 months",
+    description: "Make Complete Flutter Development",
   },
 ];
 
@@ -96,33 +101,45 @@ export const columns = [
     ),
   },
   {
-    accessorKey: "email",
+    accessorKey: "course",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Email
+          Course
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+    cell: ({ row }) => (
+      <div>{row.getValue("course")}</div>
+    ),
   },
   {
-    accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
+    accessorKey: "description",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Description
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => (
+      <div className="lowercase">{row.getValue("description")}</div>
+    ),
+  },
+  {
+    accessorKey: "duration",
+    header: () => <div className="text-right">Duration</div>,
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"));
-
-      // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
-
-      return <div className="text-right font-medium">{formatted}</div>;
+      const duration = row.getValue("duration");
+      return <div className="text-right font-medium">{duration}</div>;
     },
   },
   {
@@ -185,10 +202,10 @@ export function CourseTable() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter emails..."
-          value={table.getColumn("email")?.getFilterValue() ?? ""}
+          placeholder="Filter course..."
+          value={table.getColumn("course")?.getFilterValue() ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("course")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />

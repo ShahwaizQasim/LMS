@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className="container-fluid">
       <Tabs defaultValue="Dashboard" className="w-full">
         <TabsList className="w-full">
           {/* <Link href={"/admin"}>
