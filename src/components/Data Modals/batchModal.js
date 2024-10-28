@@ -241,7 +241,7 @@ export function BatchForm() {
               fontFamily: "poppins",
             }}
           >
-            Add Course
+            Add Batch
           </Button>
         </DialogFooter>
       </DialogContent>

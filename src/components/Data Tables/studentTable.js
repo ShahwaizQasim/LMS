@@ -35,16 +35,39 @@ import {
 const data = [
   {
     id: "1",
-    firstName: 'Syed Shahwaiz',
-    LastName: 'Qasim',
-    education:'Intermediate',
+    firstName: "Syed Shahwaiz",
+    LastName: "Qasim",
+    education: "Intermediate",
     cnic: 42201111111,
-    email:'shahwaiz@gmail.com',
-    address:'Korangi Karachi',
-    gender:'male',
-    role:'student',
-    profilePicture:'picture link a jaye ga'
-
+    email: "shahwaiz@gmail.com",
+    address: "Korangi Karachi",
+    gender: "male",
+    role: "student",
+    profilePicture: "picture link a jaye ga",
+  },
+  {
+    id: "2",
+    firstName: "Ahmed",
+    LastName: "Raza",
+    education: "Graduation",
+    cnic: 422011221,
+    email: "ahmed@gmail.com",
+    address: "Liyari Karachi",
+    gender: "male",
+    role: "student",
+    profilePicture: "picture link a jaye ga",
+  },
+  {
+    id: "3",
+    firstName: "Wasid",
+    LastName: "Ali",
+    education: "Matric",
+    cnic: 422011221,
+    email: "wasid@gmail.com",
+    address: "North Karachi",
+    gender: "male",
+    role: "student",
+    profilePicture: "picture link a jaye ga",
   },
 ];
 
@@ -90,9 +113,7 @@ export const columns = [
         </Button>
       );
     },
-    cell: ({ row }) => (
-      <div>{row.getValue("LastName")}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue("LastName")}</div>,
   },
   {
     accessorKey: "education",
@@ -130,9 +151,7 @@ export const columns = [
         </Button>
       );
     },
-    cell: ({ row }) => (
-      <div className="lowercase">{row.getValue("email")}</div>
-    ),
+    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
   },
   {
     accessorKey: "address",
@@ -178,9 +197,7 @@ export const columns = [
         </Button>
       );
     },
-    cell: ({ row }) => (
-      <div className="lowercase">{row.getValue("role")}</div>
-    ),
+    cell: ({ row }) => <div className="lowercase">{row.getValue("role")}</div>,
   },
   {
     accessorKey: "profilePicture",
@@ -258,10 +275,10 @@ export function StudentTable() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter course..."
-          value={table.getColumn("course")?.getFilterValue() ?? ""}
+          placeholder="Filter Name..."
+          value={table.getColumn("firstName")?.getFilterValue() ?? ""}
           onChange={(event) =>
-            table.getColumn("course")?.setFilterValue(event.target.value)
+            table.getColumn("firstName")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
