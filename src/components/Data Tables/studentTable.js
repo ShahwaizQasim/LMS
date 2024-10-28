@@ -35,53 +35,16 @@ import {
 const data = [
   {
     id: "1",
-    batchName: "Batch A",
-    trainer: "Bilal",
-    course: "Web Development",
-    noOfStudents: 20,
-    status: "completed",
-    duration: "1 year",
-    description: "Make student complete Web Developer from scratch",
-  },
-  {
-    id: "2",
-    batchName: "Batch B",
-    trainer: "Shehzad",
-    noOfStudents: 30,
-    course: "App Development",
-    status: "ongoing",
-    duration: "4 months",
-    description: "Make Web Developer also App Developer",
-  },
-  {
-    id: "3",
-    batchName: "Batch C",
-    trainer: "Ghous",
-    noOfStudents: 60,
-    course: "Graphic Designing",
-    status: "merged",
-    duration: "2 months",
-    description: "Make complete Graphic Designer",
-  },
-  {
-    id: "4",
-    batchName: "Batch D",
-    trainer: "Saad",
-    noOfStudents: 50,
-    course: "Python Programming",
-    status: "pending",
-    duration: "4 months",
-    description: "Make Complete Python Programmer",
-  },
-  {
-    id: "5",
-    batchName: "Batch E",
-    trainer: "Qasim",
-    noOfStudents: 70,
-    course: "Flutter Development",
-    status: "pending",
-    duration: "6 months",
-    description: "Make Complete Flutter Development",
+    firstName: 'Syed Shahwaiz',
+    LastName: 'Qasim',
+    education:'Intermediate',
+    cnic: 42201111111,
+    email:'shahwaiz@gmail.com',
+    address:'Korangi Karachi',
+    gender:'male',
+    role:'student',
+    profilePicture:'picture link a jaye ga'
+
   },
 ];
 
@@ -109,72 +72,131 @@ export const columns = [
     enableHiding: false,
   },
   {
-    accessorKey: "batchName",
-    header: "Batch Name",
+    accessorKey: "firstName",
+    header: "First Name",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("batchName")}</div>
+      <div className="capitalize">{row.getValue("firstName")}</div>
     ),
   },
   {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("status")}</div>
-    ),
-  },
-  {
-    accessorKey: "trainer",
-    header: "Trainer",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("trainer")}</div>
-    ),
-  },
-  {
-    accessorKey: "noOfStudents",
-    header: "No. of Students",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("noOfStudents")}</div>
-    ),
-  },
-  {
-    accessorKey: "course",
+    accessorKey: "LastName",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Course
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          Last Name
         </Button>
       );
     },
-    cell: ({ row }) => <div>{row.getValue("course")}</div>,
+    cell: ({ row }) => (
+      <div>{row.getValue("LastName")}</div>
+    ),
   },
   {
-    accessorKey: "description",
+    accessorKey: "education",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Description
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          Education
         </Button>
       );
     },
     cell: ({ row }) => (
-      <div className="lowercase">{row.getValue("description")}</div>
+      <div className="lowercase">{row.getValue("education")}</div>
     ),
   },
   {
-    accessorKey: "duration",
-    header: () => <div className="text-right">Duration</div>,
+    accessorKey: "cnic",
+    header: () => <div className="text-right">CNIC</div>,
     cell: ({ row }) => {
-      const duration = row.getValue("duration");
+      const duration = row.getValue("cnic");
       return <div className="text-right font-medium">{duration}</div>;
     },
+  },
+  {
+    accessorKey: "email",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Email
+        </Button>
+      );
+    },
+    cell: ({ row }) => (
+      <div className="lowercase">{row.getValue("email")}</div>
+    ),
+  },
+  {
+    accessorKey: "address",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Address
+        </Button>
+      );
+    },
+    cell: ({ row }) => (
+      <div className="lowercase">{row.getValue("address")}</div>
+    ),
+  },
+  {
+    accessorKey: "gender",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Gender
+        </Button>
+      );
+    },
+    cell: ({ row }) => (
+      <div className="lowercase">{row.getValue("gender")}</div>
+    ),
+  },
+  {
+    accessorKey: "role",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Role
+        </Button>
+      );
+    },
+    cell: ({ row }) => (
+      <div className="lowercase">{row.getValue("role")}</div>
+    ),
+  },
+  {
+    accessorKey: "profilePicture",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Profile Picture
+        </Button>
+      );
+    },
+    cell: ({ row }) => (
+      <div className="lowercase">{row.getValue("profilePicture")}</div>
+    ),
   },
   {
     id: "actions",
@@ -207,7 +229,7 @@ export const columns = [
   },
 ];
 
-export function BatchTable() {
+export function StudentTable() {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
   const [columnVisibility, setColumnVisibility] = useState({});
