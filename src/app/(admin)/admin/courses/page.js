@@ -7,7 +7,14 @@ function Courses() {
     <>
       <div className="container mx-auto min-h-screen p-10">
         <div className="flex justify-between">
-          <h1 className="text-center font-bold text-2xl">Courses</h1>
+          <h1
+            className="text-center font-bold text-2xl"
+            style={{
+              fontFamily: "poppins",
+            }}
+          >
+            Courses
+          </h1>
           <CourseForm />
         </div>
         <CourseTable />

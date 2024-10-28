@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export function CourseForm() {
+export function BatchForm() {
   return (
     <Dialog>
       <DialogTrigger asChild>

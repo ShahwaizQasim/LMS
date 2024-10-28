@@ -6,9 +6,6 @@ export default function Layout({ children }) {
     <div className="container-fluid">
       <Tabs defaultValue="Dashboard" className="w-full">
         <TabsList className="w-full">
-          {/* <Link href={"/admin"}>
-            <TabsTrigger value="Admin">Admin</TabsTrigger>
-          </Link> */}
           <Link href={"/admin/dashboard"}>
             <TabsTrigger value="Dashboard">Dashboard</TabsTrigger>
           </Link>
