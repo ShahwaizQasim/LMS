@@ -23,6 +23,52 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+const trainers = [
+  {
+    id: "trainer1",
+    name: "Bilal Raza",
+  },
+  {
+    id: "trainer2",
+    name: "Shehzad Iqbal",
+  },
+  {
+    id: "trainer3",
+    name: "Ghous Ahmed",
+  },
+  {
+    id: "trainer4",
+    name: "Saad Ali",
+  },
+  {
+    id: "trainer5",
+    name: "Qasim Ali",
+  },
+];
+
+const courses = [
+  {
+    id: "course1",
+    name: "Web Development",
+  },
+  {
+    id: "course2",
+    name: "App Development",
+  },
+  {
+    id: "course3",
+    name: "Graphic Designing",
+  },
+  {
+    id: "course4",
+    name: "Python Programming",
+  },
+  {
+    id: "course5",
+    name: "Flutter Development",
+  },
+];
+
 export function BatchForm() {
   return (
     <Dialog>
@@ -32,7 +78,7 @@ export function BatchForm() {
             fontFamily: "poppins",
           }}
         >
-          Add Course
+          Add Batch
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
@@ -42,95 +88,150 @@ export function BatchForm() {
               fontFamily: "poppins",
             }}
           >
-            Add Course
+            Add Batch
           </DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid gap-3">
             <Label
-              htmlFor="course"
+              htmlFor="batchName"
               style={{
                 fontFamily: "poppins",
+                marginTop: "10px",
               }}
             >
-              Course
+              Batch Name
             </Label>
             <Input
               required
-              id="course"
+              id="batchName"
               defaultValue=""
               className="col-span-3"
             />
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-3">
             <Label
-              htmlFor="duration"
+              htmlFor="trainer"
               className="mt-2"
               style={{
                 fontFamily: "poppins",
               }}
             >
-              Duration
+              Trainer Name
             </Label>
-            <Input
-              id="duration"
-              defaultValue=""
-              className="col-span-3"
-              required
-            />
+            <Select required>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select Trainer...." />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {trainers.map((trainerName) => {
+                    return (
+                      <SelectItem key={trainerName.id} value={trainerName.name}>
+                        {trainerName.name}
+                      </SelectItem>
+                    );
+                  })}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-3">
             <Label
-              htmlFor="description"
+              htmlFor="courses"
               className="mt-2"
               style={{
                 fontFamily: "poppins",
               }}
             >
-              Description
+              Courses
             </Label>
-            <Input
-              id="description"
-              defaultValue=""
-              className="col-span-3"
-              required
-            />
+            <Select required>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select Course...." />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {courses.map((courseName) => {
+                    return (
+                      <SelectItem key={courseName.id} value={courseName.name}>
+                        {courseName.name}
+                      </SelectItem>
+                    );
+                  })}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-3">
             <Label
               htmlFor="status"
               className="mt-2"
               style={{
                 fontFamily: "poppins",
+                marginTop: "10px",
               }}
             >
               Status
             </Label>
             <Select required>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Active - Not-Active" />
+                <SelectValue placeholder="pending, completed, Ongoing, merged" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
                   <SelectItem
-                    value="active"
+                    value="completed"
                     style={{
                       fontFamily: "poppins",
                     }}
                   >
-                    Active
+                    Completed
                   </SelectItem>
                   <SelectItem
-                    value="not-active"
+                    value="merged"
                     style={{
                       fontFamily: "poppins",
                     }}
                   >
-                    Not Active
+                    Merged
+                  </SelectItem>
+                  <SelectItem
+                    value="Ongoing"
+                    style={{
+                      fontFamily: "poppins",
+                    }}
+                  >
+                    Ongoing
+                  </SelectItem>
+                  <SelectItem
+                    value="pending"
+                    style={{
+                      fontFamily: "poppins",
+                    }}
+                  >
+                    pending
                   </SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
+          </div>
+          <div className="grid gap-3">
+            <Label
+              htmlFor="noOfStudents"
+              style={{
+                fontFamily: "poppins",
+                marginTop: "10px",
+              }}
+            >
+              No. Of Students
+            </Label>
+            <Input
+              required
+              id="noOfStudents"
+              defaultValue=""
+              className="col-span-3"
+            />
           </div>
         </div>
         <DialogFooter>
