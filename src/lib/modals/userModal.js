@@ -15,4 +15,4 @@ const userSchema = new Schema(
 );
 
 export const UserModal =
-  mongoose.models.users || mongoose.connect(process.env.MONGODB_URI);
+  mongoose.models.users || mongoose.model('users', userSchema);
