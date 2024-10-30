@@ -46,7 +46,7 @@ export function StudentForm() {
           </DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <div className="grid gap-3">
+          <div className="grid grid-col-2 gap-3">
             <Label
               htmlFor="firstName"
               style={{
