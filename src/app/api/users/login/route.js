@@ -1,7 +1,7 @@
 import { ConnectDB } from "@/lib/dbConnect";
 import { UserModal } from "@/lib/modals/userModal";
 import bcrypt from "bcrypt";
-import { jwt } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 export async function POST(request) {
   await ConnectDB();
@@ -31,10 +31,14 @@ export async function POST(request) {
   return Response.json(
     {
       error: false,
-      msg: "Login Successfully",
+      msg: "User Login Successfully",
       user,
       token,
     },
     { status: 200 }
   );
+}
+
+export async function GET(request) {
+  return Response.json("API Fetch Successfully");
 }
