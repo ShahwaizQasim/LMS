@@ -45,8 +45,8 @@ export function StudentForm() {
             Add Student
           </DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-col-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-col-2  gap-4 mt-8">
+          <div className="grid gap-2">
             <Label
               htmlFor="firstName"
               style={{
@@ -62,10 +62,9 @@ export function StudentForm() {
               className="col-span-3"
             />
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             <Label
               htmlFor="lastName"
-              className="mt-2"
               style={{
                 fontFamily: "poppins",
               }}
@@ -79,7 +78,10 @@ export function StudentForm() {
               required
             />
           </div>
-          <div className="grid gap-4">
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-col-2  gap-4">
+          <div className="grid gap-2">
             <Label
               htmlFor="education"
               className="mt-2"
@@ -96,7 +98,7 @@ export function StudentForm() {
               required
             />
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             <Label
               htmlFor="cnic"
               className="mt-2"
@@ -108,7 +110,9 @@ export function StudentForm() {
             </Label>
             <Input id="cnic" defaultValue="" className="col-span-3" required />
           </div>
-          <div className="grid gap-4">
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-col-2  gap-4">
+          <div className="grid gap-2">
             <Label
               htmlFor="email"
               className="mt-2"
@@ -120,7 +124,7 @@ export function StudentForm() {
             </Label>
             <Input id="email" defaultValue="" className="col-span-3" required />
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             <Label
               htmlFor="address"
               className="mt-2"
@@ -137,7 +141,9 @@ export function StudentForm() {
               required
             />
           </div>
-          <div className="grid gap-4">
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2  gap-4">
+          <div className="grid gap-2">
             <Label
               htmlFor="gender"
               className="mt-2"
@@ -154,7 +160,7 @@ export function StudentForm() {
               required
             />
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             <Label
               htmlFor="role"
               className="mt-2"
@@ -190,30 +196,32 @@ export function StudentForm() {
               </SelectContent>
             </Select>
           </div>
-          <div className="grid gap-4">
-            <Label
-              htmlFor="profilePicture"
-              className="mt-2"
-              style={{
-                fontFamily: "poppins",
-              }}
-            >
-              Profile Picture
-            </Label>
-            <Input
-              id="profilePicture"
-              defaultValue=""
-              className="col-span-3"
-              type="file"
-              required
-            />
-          </div>
         </div>
+        <div className="grid gap-2">
+          <Label
+            htmlFor="profilePicture"
+            className="mt-2"
+            style={{
+              fontFamily: "poppins",
+            }}
+          >
+            Profile Picture
+          </Label>
+          <Input
+            id="profilePicture"
+            defaultValue=""
+            className="col-span-3"
+            type="file"
+            required
+          />
+        </div>
+
         <DialogFooter>
           <Button
             type="submit"
             style={{
               fontFamily: "poppins",
+              marginTop: "15px",
             }}
           >
             Add Student
