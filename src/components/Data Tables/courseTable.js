@@ -113,9 +113,7 @@ export const columns = [
         </Button>
       );
     },
-    cell: ({ row }) => (
-      <div>{row.getValue("course")}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue("course")}</div>,
   },
   {
     accessorKey: "description",
