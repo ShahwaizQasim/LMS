@@ -1,10 +1,9 @@
-
 import { signIn, auth } from "../../../../auth";
 import { redirect } from "next/navigation";
 
 export default async function SignIn() {
-    const session = await auth();
-    if (session) return redirect('/');
+  const session = await auth();
+  if (session) return redirect("/");
   return (
     <div className="flex h-screen justify-center items-center">
       <form
@@ -14,7 +13,7 @@ export default async function SignIn() {
         }}
       >
         <button type="submit" className=" border p-3 px-5 border-slate-300">
-          Signin with Google
+          Continue with Google
         </button>
       </form>
     </div>
