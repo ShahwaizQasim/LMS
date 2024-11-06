@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 export default async function SignIn() {
     const session = await auth();
-    if (session) return redirect('/')
+    if (session) return redirect('/');
   return (
     <div className="flex h-screen justify-center items-center">
       <form
