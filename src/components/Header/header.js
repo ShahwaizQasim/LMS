@@ -13,9 +13,13 @@ export default async function Header() {
 
         {session ? (
           <div className="flex gap-3">
-            <Avatar className="mt-2">
-              <AvatarImage src={session?.user?.image} />
-            </Avatar>
+            {session?.user?.image ? (
+              <Avatar className="mt-2">
+                <AvatarImage src={session?.user?.image} />
+              </Avatar>
+            ) : (
+              <h2 className="mt-3 text-white">{session?.user?.email}</h2>
+            )}
             <form
               action={async () => {
                 "use server";
