@@ -35,7 +35,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         let user = null;
         console.log("credentials", credentials);
 
-        let res = await fetch(`http://localhost:3000/api/users/login`, {
+        let res = await fetch(`https://lms-eta-six.vercel.app/api/users/login`, {
           method: "POST",
           body: JSON.stringify({
             email: credentials.email,
